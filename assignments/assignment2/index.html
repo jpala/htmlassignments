@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script>
+      function startCounter(){
+        document.getElementById("counterSpan").innerHTML = document.getElementById("startNumber").value;
+        myVar = setInterval(changeNumber, 1000);
+      }
+      function changeNumber(){
+        var counterSpan = document.getElementById("counterSpan");
+        var current = counterSpan.innerHTML || document.getElementById("startNumber").value;
+        current = current -1;
+        if(current <= 10){
+          counterSpan.style.color = 'red';
+        }else if(current <= 30){
+          counterSpan.style.color = 'orange';
+        }
+        counterSpan.innerHTML = current;
+        if(current <= 0){
+          myStopFunction();
+          counterSpan.style.color = 'green';
+          counterSpan.innerHTML = "Countdown Completed";
+        }
+      }
+
+      function myStopFunction() {
+          clearInterval(myVar);
+      }
+    </script>
+  </head>
+  <body>
+    <div>
+      <span>Enter Start of Count down:</span><input type="text" id="startNumber" /><br>
+      <input type="button" value="Start Countdown" onclick="startCounter();"/>
+    </div>
+    <div id="counterDiv">
+      <span id="counterSpan"></span>
+    </div>
+  </body>
+</html>
