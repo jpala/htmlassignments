@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <style type="text/css">
+      span {
+        display: inline-block;
+        width: 120px;
+      }
+    </style>
+    <script>
+      function performOperation( operation ){
+        var firstNumber, secondNumber, result;
+        firstNumber = document.getElementById("firstNumber").value ? document.getElementById("firstNumber").value *1 : 0;
+        secondNumber = document.getElementById("secondNumber").value ? document.getElementById("secondNumber").value *1 : 0;
+        switch(operation){
+          case 'ADD':
+            result = firstNumber + secondNumber;
+            break;
+          case 'SUB':
+            result = firstNumber - secondNumber;
+            break;
+          case 'MUL':
+            result = firstNumber * secondNumber;
+            break;
+        }
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </head>
+  <body>
+    <div align="left">
+      <span>First Number: </span><input type="text" id="firstNumber" /> <br>
+      <span>Second Number: </span><input type="text" id="secondNumber" /> <br><br>
+      <div>
+        <input type="button" id="sum" value="Sum" onClick="performOperation('ADD');"/> &nbsp;
+        <input type="button" id="diff" value="Subtract" onClick="performOperation('SUB');"/> &nbsp;
+        <input type="button" id="mult" value="Multiply" onClick="performOperation('MUL');"/> &nbsp;
+      </div>
+      <br>
+      <span>Result:</span><span id="result"></span>
+    </div>
+  </body>
+</html>
